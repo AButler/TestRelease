@@ -2,7 +2,7 @@ name: Release
 
 on: 
   release:
-    types: [published]
+    types: [created]
 
 jobs:
   build:
@@ -17,3 +17,8 @@ jobs:
         with:
           files: 'files1/*;files2/p*.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Publish release
+        uses: AButler/publish-release@v1.0.x
+        with:
+          repo-token: ${{ secrets.GITHUB.TOKEN }}
