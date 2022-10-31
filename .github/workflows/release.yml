@@ -13,12 +13,8 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Upload artifacts to release
-        uses: AButler/upload-release-assets@v2.0.x
+        uses: AButler/upload-release-assets@v2.0.x-test
         with:
           files: 'files1/*;files2/p*.json'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Publish release
-        uses: AButler/publish-release@v1.0.x
-        with:
-          repo-token: ${{ secrets.GITHUB.TOKEN }}
+        
