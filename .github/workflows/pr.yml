@@ -1,0 +1,27 @@
+name: PR
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - id: echo
+        run: |
+          echoerr() { echo "$@" 1>&2; }
+          echo 'Hello 1'
+          echo 'Hello 2'
+          echoerr 'Invalid message'
+          echo 'Hello 3'
+      - run: |
+          echo 'stdout'
+          echo ${{ steps.echo.stdout }}
+
+          echo 'stderr'
+          echo ${{ steps.echo.stderr }}
+
+          echo 'all'
+          echo ${{ steps.echo.output }}
